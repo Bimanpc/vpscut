@@ -1,1 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple AI Video Editor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        #video-container {
+            margin-top: 20px;
+        }
+        video {
+            width: 100%;
+            max-width: 600px;
+            border: 1px solid #ccc;
+        }
+        #controls {
+            margin-top: 20px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple AI Video Editor</h1>
+    <div id="upload-container">
+        <input type="file" id="video-upload" accept="video/*">
+    </div>
+    <div id="video-container">
+        <video id="video-player" controls>
+            <source id="video-source" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div id="controls">
+        <button id="auto-edit">Auto Edit</button>
+        <button id="apply-effects">Apply Effects</button>
+        <button id="save-video">Save Video</button>
+    </div>
 
+    <script>
+        document.getElementById('video-upload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const videoPlayer = document.getElementById('video-player');
+                const videoSource = document.getElementById('video-source');
+                videoSource.src = URL.createObjectURL(file);
+                videoPlayer.load();
+            }
+        });
+
+        document.getElementById('auto-edit').addEventListener('click', function() {
+            alert('Auto Edit feature triggered!');
+            // Call your AI auto-edit function here
+        });
+
+        document.getElementById('apply-effects').addEventListener('click', function() {
+            alert('Apply Effects feature triggered!');
+            // Call your AI apply-effects function here
+        });
+
+        document.getElementById('save-video').addEventListener('click', function() {
+            alert('Save Video feature triggered!');
+            // Call your save video function here
+        });
+    </script>
+</body>
+</html>
